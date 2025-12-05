@@ -60,14 +60,12 @@ const MapCanvas = forwardRef<MapCanvasHandle, MapCanvasProps>(({
     setIsClient(true);
     const updateWidth = () => {
       if (containerRef.current) {
-        // Pega a largura do container, mas limita a 800px para desktop
         const width = Math.min(containerRef.current.offsetWidth, 800);
         setContainerWidth(width);
       }
     };
 
     updateWidth();
-    // Pequeno delay para garantir que o layout CSS do pai carregou
     setTimeout(updateWidth, 100);
 
     const observer = new ResizeObserver(() => {
@@ -148,7 +146,6 @@ const MapCanvas = forwardRef<MapCanvasHandle, MapCanvasProps>(({
   return (
     <div 
       ref={containerRef} 
-      // CLASSE IMPORTANTE: 'touch-none' para desenhar e 'w-full' para ocupar o espaço do pai (page.tsx)
       className="touch-none border-4 border-zinc-800 rounded-xl overflow-hidden shadow-2xl relative bg-zinc-900 w-full h-full"
     >
       {containerWidth > 0 && (

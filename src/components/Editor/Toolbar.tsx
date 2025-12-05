@@ -51,7 +51,8 @@ export default function Toolbar({ activeTool, onToolChange }: ToolbarProps) {
             <Icon 
               className={`w-6 h-6 ${isActive && tool.color ? tool.color : ""}`} 
             />
-            {/* Tooltip escondido no mobile, visível no desktop */}
+            
+            {/* Tooltip hidden on mobile */}
             <span className="hidden md:block absolute right-full mr-3 top-1/2 -translate-y-1/2 px-2 py-1 bg-black text-xs text-white rounded opacity-0 group-hover:opacity-100 pointer-events-none whitespace-nowrap transition-opacity z-50">
               {tool.label}
             </span>

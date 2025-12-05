@@ -4,11 +4,9 @@ import { Circle, Group, Text } from "react-konva";
 import { IconData } from "@/types/canvas";
 import { KonvaEventObject } from "konva/lib/Node";
 
-// Adicionamos a propriedade 'strokeColor'
+// 'strokeColor' to border
 const ICON_CONFIG: Record<string, { color: string; label: string; strokeColor: string }> = {
-  // Smoke: Cinza com borda PRETA
   smoke: { color: "#9ca3af", label: "S", strokeColor: "black" },   
-  // As outras continuam com borda BRANCA para contraste no mapa escuro
   flash: { color: "#facc15", label: "F", strokeColor: "black" },   
   molotov: { color: "#ef4444", label: "M", strokeColor: "black" }, 
   he: { color: "#10b981", label: "H", strokeColor: "black" },      
@@ -56,7 +54,6 @@ export default function StratIcon({ data, onChange, isDraggable }: StratIconProp
         shadowBlur={5}
         shadowOpacity={0.5}
       />
-      {/* Agora usamos config.strokeColor */}
       <Circle
         radius={12}
         stroke={config.strokeColor} 

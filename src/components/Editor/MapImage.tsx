@@ -6,7 +6,6 @@ import { useMemo } from "react";
 
 interface MapImageProps {
   imageUrl: string;
-  // O tamanho base do nosso mundo lógico (800)
   baseSize: number; 
 }
 
@@ -16,7 +15,7 @@ export default function MapImage({ imageUrl, baseSize }: MapImageProps) {
   const layout = useMemo(() => {
     if (!image) return null;
 
-    // Calcula a proporção para caber no quadrado baseSize (ex: 800x800)
+    // Proportion to fit on board baseSize (ex: 800x800)
     const scale = Math.min(
       baseSize / image.width,
       baseSize / image.height

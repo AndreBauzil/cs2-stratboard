@@ -8,7 +8,7 @@ export interface MapData {
     {
       id: "dust2",
       name: "Dust II",
-      imageUrl: "/maps/dust2.png" // Caminho relativo local
+      imageUrl: "/maps/dust2.png" 
     },
     {
       id: "mirage",
