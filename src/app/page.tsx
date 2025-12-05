@@ -101,7 +101,7 @@ export default function Home() {
   const hasItems = currentItems.length > 0;
 
   return (
-    <main className="flex min-h-screen flex-col items-center p-2 md:p-8 bg-zinc-950 text-white select-none overflow-x-hidden w-full">
+    <main className="flex min-h-screen flex-col items-center p-2 md:p-8 pb-24 md:pb-8 bg-zinc-950 text-white select-none overflow-x-hidden w-full relative">
       
       {/* Header */}
       <div className="z-10 w-full max-w-6xl flex flex-col md:flex-row items-center justify-between gap-3 mb-4 font-mono text-sm shrink-0">
@@ -143,15 +143,14 @@ export default function Home() {
         </div>
       </div>
 
-      {/* LAYOUT PRINCIPAL */}
-      <div className="flex flex-col lg:flex-row gap-6 w-full justify-center items-start h-full">
+      {/* Main Content */}
+      <div className="flex flex-col lg:flex-row gap-6 w-full justify-center items-start h-full flex-1">
         
-        {/* Sidebar */}
         <aside className="
           flex lg:flex-col gap-2 
           overflow-x-auto w-full lg:w-48 pb-2 lg:pb-0 scrollbar-hide shrink-0 
           lg:sticky lg:top-8
-          justify-center lg:justify-start  /* <--- AQUI ESTÁ A CORREÇÃO DE ALINHAMENTO */
+          justify-center lg:justify-start
         ">
           {CS2_MAPS.map((map) => {
             const mapSnapshots = history[map.id] || [];
@@ -178,7 +177,6 @@ export default function Home() {
           })}
         </aside>
 
-        {/* Container do Canvas + Toolbar */}
         <div className="relative w-full max-w-[800px]">
            <MapCanvas 
             ref={canvasRef}
@@ -200,6 +198,13 @@ export default function Home() {
         </div>
         
       </div>
+
+      {/* FOOTER */}
+      <footer className="w-full text-center py-4 text-zinc-600 text-xs md:text-sm mt-8">
+        <p>
+          CS2 StratBoard &copy; {new Date().getFullYear()} • Created with ❤️ by <span className="text-zinc-400 font-semibold">Andre G. Bauzil</span>
+        </p>
+      </footer>
     </main>
   );
 }
